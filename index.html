@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyFlow | Your AI Study Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-icon">✳</span>
+                <span>StudyFlow</span>
+            </div>
+
+            <p class="sidebar-label">YOUR WORKSPACE</p>
+
+            <button class="nav-item active" data-tab="summarise">
+                <span>◫</span> PDF Summariser
+            </button>
+            <button class="nav-item" data-tab="notes">
+                <span>▤</span> Study Notes
+            </button>
+            <button class="nav-item" data-tab="ask">
+                <span>✧</span> Ask Your PDF
+            </button>
+
+            <div class="sidebar-footer">
+                <div class="status-dot"></div>
+                <span>Local AI workspace</span>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">YOUR PERSONAL LEARNING SPACE</p>
+                    <h1>Study smarter, not harder.</h1>
+                </div>
+                <div class="ai-badge">
+                    <span class="status-dot"></span>
+                    Ollama · Local AI
+                </div>
+            </header>
+
+            <section class="welcome">
+                <div>
+                    <p class="eyebrow">WELCOME TO STUDYFLOW</p>
+                    <h2>Your study material, simplified.</h2>
+                    <p class="welcome-text">
+                        Upload your PDF and turn lengthy material
+                        into summaries, detailed notes and answers to your questions.
+                    </p>
+                </div>
+                <div class="welcome-icon">✳</div>
+            </section>
+
+            <section class="upload-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>Your document</h2>
+                        <p>Start by uploading your study material.</p>
+                    </div>
+                    <span class="file-count" id="file-count">No file selected</span>
+                </div>
+
+                <label class="upload-box" for="pdf-upload" id="upload-box">
+                    <div class="upload-icon">↑</div>
+                    <h3>Drop your PDF here</h3>
+                    <p>or click to browse files on your computer</p>
+                    <span class="file-hint">PDF documents only · Maximum 20 MB</span>
+                    <input type="file" id="pdf-upload" accept=".pdf,application/pdf">
+                </label>
+
+                <div id="document-info" class="document-info hidden"></div>
+                <p id="status-message" class="status-message" aria-live="polite">
+                    Your document stays in your browser until you use a feature.
+                </p>
+            </section>
+
+            <section class="tools-section">
+                <div class="section-heading">
+                    <div>
+                        <h2>Study tools</h2>
+                        <p>Choose what you want to create.</p>
+                    </div>
+                </div>
+
+                <div class="tools-grid">
+                    <button type="button" class="tool-card selected" data-tab="summarise">
+                        <span class="tool-icon purple">◫</span>
+                        <span class="tool-title">PDF Summary</span>
+                        <span class="tool-description">Get the key ideas from your document.</span>
+                        <span class="tool-arrow">↗</span>
+                    </button>
+
+                    <button type="button" class="tool-card" data-tab="notes">
+                        <span class="tool-icon blue">▤</span>
+                        <span class="tool-title">Study Notes</span>
+                        <span class="tool-description">Create organised, detailed revision notes.</span>
+                        <span class="tool-arrow">↗</span>
+                    </button>
+
+                    <button type="button" class="tool-card" data-tab="ask">
+                        <span class="tool-icon pink">✧</span>
+                        <span class="tool-title">Ask Your PDF</span>
+                        <span class="tool-description">Ask questions and get answers based on your material.</span>
+                        <span class="tool-arrow">↗</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="workspace hidden" id="workspace">
+                <div class="section-heading">
+                    <div>
+                        <h2 id="workspace-title">PDF Summary</h2>
+                        <p id="workspace-description">Generate a summary of your document.</p>
+                    </div>
+                </div>
+
+                <form id="ask-form" class="ask-form hidden">
+                    <label for="question-input">Your question</label>
+                    <textarea id="question-input" placeholder="Ask something about your PDF..."></textarea>
+                </form>
+
+                <div class="workspace-actions">
+                    <button type="button" id="generate-btn" class="primary-button">✧ Generate with AI</button>
+                    <button type="button" id="download-btn" class="secondary-button" disabled>↓ Download results</button>
+                </div>
+
+                <div id="result-box" class="result-box hidden" aria-live="polite">
+                    <div class="result-heading">
+                        <span>GENERATED MATERIAL</span>
+                        <span id="result-type"></span>
+                    </div>
+                    <div id="result-content" class="result-content"></div>
+                </div>
+            </section>
+
+            <footer>
+                <span>StudyFlow · Built for better learning</span>
+                <span>Powered by your local AI model</span>
+            </footer>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+'''
+path = "/mnt/data/studyflow_index_replacement.html"
+with open(path, "w", encoding="utf-8") as f:
+    f.write(html)
+print(f"Created replacement index.html with {len(html.splitlines())} lines.")
