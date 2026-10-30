@@ -7,6 +7,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="auth-overlay" style="position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(20,18,40,.88);backdrop-filter:blur(8px);font-family:inherit;">
+        <section style="width:min(100%,420px);padding:30px;border-radius:22px;background:#fff;box-shadow:0 24px 80px rgba(0,0,0,.25);color:#24213a;">
+            <div style="font-size:13px;letter-spacing:.12em;font-weight:700;color:#7663d8;margin-bottom:8px;">STUDYFLOW ACCOUNT</div>
+            <h2 style="margin:0 0 8px;font-size:28px;">Your study space awaits.</h2>
+            <p style="margin:0 0 22px;color:#6c6980;line-height:1.5;">Sign in or create a free account to use StudyFlow's AI study tools.</p>
+            <form id="auth-form">
+                <label for="auth-email" style="display:block;margin:0 0 6px;font-weight:600;">Email</label>
+                <input id="auth-email" type="email" autocomplete="email" required placeholder="you@example.com" style="box-sizing:border-box;width:100%;padding:12px 13px;border:1px solid #ddd9ee;border-radius:10px;margin-bottom:14px;font:inherit;">
+                <label for="auth-password" style="display:block;margin:0 0 6px;font-weight:600;">Password</label>
+                <input id="auth-password" type="password" autocomplete="current-password" minlength="6" required placeholder="At least 6 characters" style="box-sizing:border-box;width:100%;padding:12px 13px;border:1px solid #ddd9ee;border-radius:10px;margin-bottom:16px;font:inherit;">
+                <div style="display:flex;gap:10px;">
+                    <button id="auth-signin" type="submit" style="flex:1;border:0;border-radius:10px;padding:12px;background:#7563d8;color:#fff;font:inherit;font-weight:700;cursor:pointer;">Sign in</button>
+                    <button id="auth-signup" type="button" style="flex:1;border:1px solid #d9d3f4;border-radius:10px;padding:12px;background:#f5f2ff;color:#51429f;font:inherit;font-weight:700;cursor:pointer;">Sign up</button>
+                </div>
+                <p id="auth-message" role="status" aria-live="polite" style="margin:14px 0 0;color:#6c6980;line-height:1.45;"></p>
+            </form>
+        </section>
+    </div>
     <div class="app">
         <aside class="sidebar">
             <div class="brand">
@@ -145,6 +163,7 @@
         </main>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script src="script.js"></script>
 </body>
