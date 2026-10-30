@@ -11,7 +11,7 @@ const NOTES_PAGES_PER_BATCH = 2;
 const SUPABASE_URL = "https://ejyqbiovippmwlodoxwz.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_SbNEvbASlfnSJ8Ss1ieWUQ_HVju-kEk";
 // This temporary Cloudflare URL changes whenever a new quick tunnel is created.
-const OLLAMA_URL = "https://toolbox-loads-establishing-studios.trycloudflare.com/api/generate";
+const OLLAMA_URL = "https://chuck-fellowship-finds-regards.trycloudflare.com";
 
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
